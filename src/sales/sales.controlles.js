@@ -7,7 +7,7 @@ const getAllSales = async () =>{
         include: [{
             model: Users,
             attributes:{
-                exclude: ['password', "createdAt", "updatedAt" ]
+                exclude: ['password', "updatedAt" ]
             }
         }],
         attributes: {
