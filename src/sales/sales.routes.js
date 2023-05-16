@@ -2,7 +2,7 @@ const router = require('express').Router()
 const sales = require('./sales.http')
 const passporJwt = require('../middleware/auth.middleware')
 
-router.get('/', passporJwt, sales.getAll)
+router.get('/', sales.getAll)
 router.post('/', passporJwt, sales.register)
 
 router.get('/:id', passporJwt, sales.getById)
