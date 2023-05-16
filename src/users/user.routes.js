@@ -4,7 +4,7 @@ const userService = require('./user.http')
 const passportJwt = require('../middleware/auth.middleware')
 
 //* /api/v1/perfectskin/users/
-router.get('/',passportJwt, userService.getAll)
+router.get('/', userService.getAll)
 
 // router.post('/', userService.register)
 
