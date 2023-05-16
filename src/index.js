@@ -3,6 +3,7 @@ const resHandler = require('./utils/handleResponses')
 const initModels = require('./models/initModels')
 const config = require('../config').api
 const swaggerUi = require('swagger-ui-express')
+const cors = require('cors');
 //*archivos de rutas
 const userRoute = require('./users/user.routes').router
 const authRoute = require('./auth/auth.routes').router
@@ -14,6 +15,7 @@ const db = require('./utils/database')
 //*configuracion inicial
 const app = express();
 app.use(express.json())
+app.use(cors());
 
 db.authenticate()
     .then(() => console.log('Database Authenticated'))
