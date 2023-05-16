@@ -59,29 +59,30 @@ const signUp = async (req, res) => {
     }
 
     // Crear un nuevo usuario
-    try {
-        const data = await createUser(data);
-        responses.success({
-          status: 201,
-          data,
-          message: `User created succesfully with id: ${data.id}`,
-          res
-        });
-      } catch (err) {
-        responses.error({
-          status: 400,
-          data: err,
-          message: 'Error ocurred trying to create a new user',
-          res,
-          fields: {
-            nombre: 'String',
-            apellido: 'String',
-            email: 'example@example.com',
-            password: 'String',
-            telefono: '+52 1234 123 123'
-          }
-        });
-      }
+    createUser(data)
+        .then(data => {
+            responses.success({
+                status: 201,
+                data,
+                message: `User created succesfully with id: ${data.id}`,
+                res
+            })
+        })
+        .catch(err => {
+            responses.error({
+                status: 400,
+                data: err,
+                message: 'Error ocurred trying to create a new user',
+                res,
+                fields: {
+                    first_name: 'String',
+                    last_name: 'String',
+                    email: 'example@example.com',
+                    password: 'String',
+                    phone: '+52 1234 123 123'
+                }
+            })
+        })
 }
 
 
